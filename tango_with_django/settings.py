@@ -52,12 +52,13 @@ MIDDLEWARE_CLASSES = (
 )
 
 ROOT_URLCONF = 'tango_with_django.urls'
+PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
         'APP_DIRS': True,
+        'DIRS': [os.path.join(PROJECT_ROOT, 'templates').replace('\\','/')],
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -82,6 +83,13 @@ DATABASES = {
     }
 }
 
+STATIC_PATH = os.path.join(BASE_DIR,'static')
+
+STATIC_URL = '/static/' 
+
+STATICFILES_DIRS = (
+    STATIC_PATH,
+)
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
