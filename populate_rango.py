@@ -5,6 +5,7 @@ import django
 django.setup()
 
 from rango.models import Category, Page
+from django.template.defaultfilters import slugify
 
 def populate():
 	python_cat = add_cat('Python')
@@ -63,6 +64,7 @@ def add_cat(name):
 	c = Category.objects.get_or_create(name=name)[0]
 	c.likes=likes
 	c.views=views
+	c.slug =slugify(name)
 	c.save()
 	return c
 	
