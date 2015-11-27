@@ -9,6 +9,7 @@ from rango.models import Category, Page
 def populate():
 	python_cat = add_cat('Python')
 
+
 	add_page(cat=python_cat,
 		title="Offical Python Tutorial",
 		url="http://docs.python.org/2/tutorial/"
@@ -60,7 +61,11 @@ def add_page(cat, title, url, views=0):
 
 def add_cat(name):
 	c = Category.objects.get_or_create(name=name)[0]
+	c.likes=likes
+	c.views=views
+	c.save()
 	return c
+	
 
 #Start execution here!
 if __name__ == '__main__':
