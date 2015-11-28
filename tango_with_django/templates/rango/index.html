@@ -20,16 +20,13 @@
             </ul>
        {% else %}
             <strong>There are no categories present.</strong>
-        {% if pages % }
-            <ul>
-                {%for page in pages %}
-                <li><a href="/rango/category/{{ page.views}}">{{ page.views }}</a></li>
-                {% endfor %}
+    
        {% endif %}
 
         
         <a href="/rango/about/">About</a><br />
         <img src="{% static "images/mtnSheep.jpg" %}" alt="Picture of sheep" />
+        <a href="/rango/add_category/">Add a New Category</a><br />
     </body>
 
 </html>
