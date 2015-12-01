@@ -72,8 +72,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'tango_with_django.wsgi.application'
 
+LOGIN_URL = '/rango/login/'
 #Password
-#More secre hasher install Bcrypt 
+#More secre hasher install Bcrypt --pip install bcrypt
 PASSWORD_HASHERS = (
         'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
 'django.contrib.auth.hashers.BCryptPasswordHasher',
